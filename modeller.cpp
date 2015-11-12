@@ -42,24 +42,24 @@ void Modeller::placeBranches(Branch br, float angle)
     finalNodes.push_back(br.polyBranch[0].y);
     finalNodes.push_back(0.0f);
 
-    for (int i = 1; i < br.polyBranch.size(); ++i)
-    {
-        tmp = rotate(br.polyBranch[i].x, 0.0, angle);
-        finalNodes.push_back(br.polyBranch[i].x);
-        finalNodes.push_back(br.polyBranch[i].y);
-        finalNodes.push_back(tmp.y);
-    }
+//    for (int i = 1; i < br.polyBranch.size(); ++i)
+//    {
+//        tmp = rotate(br.polyBranch[i].x, 0.0, angle);
+//        finalNodes.push_back(br.polyBranch[i].x);
+//        finalNodes.push_back(br.polyBranch[i].y);
+//        finalNodes.push_back(tmp.y);
+//    }
 //    finalNodes.push_back(finalNodes);
 
-//    tmp = rotate(br.polyBranch[0].x, 0.0, angle);
-//    finalNodes.push_back(tmp.x);
-//    finalNodes.push_back(br.polyBranch[0].y);
-//    finalNodes.push_back(tmp.y);
+    tmp = rotate(br.polyBranch[0].x, 0.0, angle);
+    finalNodes.push_back(tmp.x);
+    finalNodes.push_back(br.polyBranch[0].y);
+    finalNodes.push_back(tmp.y);
 
-//    tmp = rotate(br.polyBranch[br.polyBranch.size() - 1].x, 0.0, angle);
-//    finalNodes.push_back(tmp.x);
-//    finalNodes.push_back(br.polyBranch[br.polyBranch.size() - 1].y);
-//    finalNodes.push_back(tmp.y);
+    tmp = rotate(br.polyBranch[br.polyBranch.size() - 1].x, 0.0, angle);
+    finalNodes.push_back(tmp.x);
+    finalNodes.push_back(br.polyBranch[br.polyBranch.size() - 1].y);
+    finalNodes.push_back(tmp.y);
 
     if(!br.childrenIds.empty())
     {
