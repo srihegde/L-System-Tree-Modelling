@@ -56,9 +56,6 @@ void Modeller::placeBranches(Branch br, float angle)
         arr.push_back(br.polyBranch[i].y);
         arr.push_back(tmp.y);
     }
-//    arr.push_back(arr[0]);
-//    arr.push_back(arr[1]);
-//    arr.push_back(arr[2]);
 
     finalNodes.push_back(arr);
 
@@ -93,6 +90,7 @@ void Modeller::printFinalNodes()
         }
     }
     printf("Printed nodes to file successfully\n");
+    fclose(f);
 }
 
 

@@ -159,9 +159,11 @@ void OpenGLWidget::createTree()
     }
 
     //Tree data
+    printf("Reading nodes...\n");
+
     FILE *f = fopen("./output.txt", "r");
     fscanf(f,"%d",&nodes);
-    printf("%d\n",nodes);
+//    printf("%d\n",nodes);
 
     GLfloat tree_nodes[SIZE],x,y,z;
     int pts;
@@ -185,11 +187,12 @@ void OpenGLWidget::createTree()
 
     glLineWidth(2.0f);
 
+    // For Debugging
 //    printf("%d", k);
-    for (int i = 0; i < k; i+=3)
-    {
-        printf("%f %f %f\n",tree_nodes[i], tree_nodes[i+1], tree_nodes[i+2]);
-    }
+//    for (int i = 0; i < k; i+=3)
+//    {
+//        printf("%f %f %f\n",tree_nodes[i], tree_nodes[i+1], tree_nodes[i+2]);
+//    }
 
     // Setting color information
     GLfloat tree_color[SIZE] = {0};
@@ -200,6 +203,7 @@ void OpenGLWidget::createTree()
         tree_color[i+2] = 0.2;
     }
 
+    // Creating and binding VBOs
     glGenVertexArrays(1, &cube_VAO);
     glBindVertexArray(cube_VAO);
 
@@ -220,6 +224,8 @@ void OpenGLWidget::createTree()
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+
+    fclose(f);
 
 }
 

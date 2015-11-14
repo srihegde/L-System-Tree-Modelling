@@ -3,6 +3,7 @@
 
 int m;//for selecting shapes
 int color; //for selecting colors
+Modeller *mod;
 using namespace cv;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -56,10 +57,10 @@ void MainWindow::on_actionGenerate_L_System_triggered()
 
 void MainWindow::on_actionView_3D_Model_triggered()
 {
+    mod = new Modeller(ui->widget->drawnBranch);
+
     viewer = new Viewer(this);
     viewer->show();
-
-    Modeller *mod = new Modeller(ui->widget->drawnBranch);
 
 }
 
