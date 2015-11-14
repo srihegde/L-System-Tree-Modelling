@@ -1,4 +1,5 @@
 #include "modeller.h"
+#include <cstdlib>
 
 Modeller::Modeller(Branch blist[])
 {
@@ -7,16 +8,30 @@ Modeller::Modeller(Branch blist[])
 
     float angle = 0.0f;
     vector<float> arr;
-    for (int i = 0; i < blist[0].polyBranch.size(); ++i) {
+
+    arr.push_back(blist[0].polyBranch[0].x);
+    arr.push_back(blist[0].polyBranch[0].y);
+    arr.push_back(0.0f);
+
+    for (int i = 1; i < blist[0].polyBranch.size()-1; ++i) {
+        arr.push_back(blist[0].polyBranch[i].x);
+        arr.push_back(blist[0].polyBranch[i].y);
+        arr.push_back(0.0f);
+
         arr.push_back(blist[0].polyBranch[i].x);
         arr.push_back(blist[0].polyBranch[i].y);
         arr.push_back(0.0f);
     }
+    arr.push_back(blist[0].polyBranch[blist[0].polyBranch.size()-1].x);
+    arr.push_back(blist[0].polyBranch[blist[0].polyBranch.size()-1].y);
+    arr.push_back(0.0f);
     finalNodes.push_back(arr);
 
+    int delta;
     for (int i = 0; i < numBranches; ++i) {
         placeBranches(branchList[ branchList[0].childrenIds[i] ], angle);
-        angle += ((2*PI) / numBranches);
+        delta = PI/(rand()%10 + 10);     // Random perturbations.
+        angle += (((2*PI) / numBranches) + delta);
 
     }
 
@@ -49,13 +64,22 @@ void Modeller::placeBranches(Branch br, float angle)
     arr.push_back(br.polyBranch[0].y);
     arr.push_back(0.0f);
 
-    for (int i = 1; i < br.polyBranch.size(); ++i)
+    for (int i = 1; i < br.polyBranch.size()-1; ++i)
     {
         tmp = rotate(br.polyBranch[i].x, 0.0, angle);
+
+        arr.push_back(br.polyBranch[i].x);
+        arr.push_back(br.polyBranch[i].y);
+        arr.push_back(tmp.y);
+
         arr.push_back(br.polyBranch[i].x);
         arr.push_back(br.polyBranch[i].y);
         arr.push_back(tmp.y);
     }
+    tmp = rotate(br.polyBranch[br.polyBranch.size()-1].x, 0.0, angle);
+    arr.push_back(br.polyBranch[br.polyBranch.size()-1].x);
+    arr.push_back(br.polyBranch[br.polyBranch.size()-1].y);
+    arr.push_back(tmp.y);
 
     finalNodes.push_back(arr);
 

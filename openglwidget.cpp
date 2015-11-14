@@ -86,7 +86,7 @@ void OpenGLWidget::paintGL()
     glBindVertexArray(cube_VAO);
     onIdle();
     update();
-    glDrawArrays(GL_LINE_STRIP, 0, 3*k);
+    glDrawArrays(GL_LINES, 0, 3*k);
     glBindVertexArray(0);
 }
 
