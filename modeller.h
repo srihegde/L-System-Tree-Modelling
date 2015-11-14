@@ -18,7 +18,7 @@ class Modeller
 private:
     Branch *branchList;
     int numBranches;
-    vector<float> finalNodes;
+    vector< vector<float> > finalNodes;
 
 protected:
     Point2f rotate(float x, float y, float angle);

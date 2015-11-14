@@ -1,9 +1,9 @@
 #include "openglwidget.h"
 
-#define SIZE 100
+#define SIZE 10000
 
 //Globals
-int oldX, oldY, currentX, currentY, nodes;
+int oldX, oldY, currentX, currentY, nodes, k;
 bool isDragging=false;
 
 
@@ -53,6 +53,11 @@ void OpenGLWidget::initializeGL()
     //Create program
     program = createProgram("./vshader_1.vs", "./fshader_1.fs");
 
+    screen_width = this->size().width();
+    screen_height = this->size().height();
+//    fprintf(stderr, "W: %d, H: %d\n", screen_width, screen_height);
+
+
     //Create cube VAO
     createTree();
 
@@ -81,7 +86,7 @@ void OpenGLWidget::paintGL()
     glBindVertexArray(cube_VAO);
     onIdle();
     update();
-    glDrawArrays(GL_LINES, 0, nodes);
+    glDrawArrays(GL_LINE_STRIP, 0, 3*k);
     glBindVertexArray(0);
 }
 
@@ -158,28 +163,37 @@ void OpenGLWidget::createTree()
     fscanf(f,"%d",&nodes);
     printf("%d\n",nodes);
 
-    GLfloat tree_nodes[SIZE];
+    GLfloat tree_nodes[SIZE],x,y,z;
+    int pts;
+    k = 0;
 
+    fprintf(stderr, "W: %d, H: %d\n", screen_width, screen_height);
+
+//    fscanf(f,"%f %f %f",&x, &y, &z);
     // Setting node information
-    for (int i = 0; i < nodes; i+=3)
+    for (int i = 0; i < nodes; i++)
     {
-        fscanf(f,"%f %f %f",&tree_nodes[i], &tree_nodes[i+1], &tree_nodes[i+2]);
+        fscanf(f,"%d",&pts);
+        for (int j = 0; j < pts; ++j) {
+            fscanf(f,"%f %f %f",&x, &y, &z);
 
-        tree_nodes[i] = (2*tree_nodes[i]/(screen_width) - 1);
-        tree_nodes[i+1] = (1 - 2*tree_nodes[i+1]/(screen_height));
-        tree_nodes[i+2] = (2*tree_nodes[i+2]/(screen_width) - 1);   // Assuming the depth of the bounding box is same as width.
+            tree_nodes[k++] = (2*x/(float)(screen_width) - 1) * 10.0f;
+            tree_nodes[k++] = (1 - 2*y/(float)(screen_height)) * 10.0f;
+            tree_nodes[k++] = (2*z/(float)(screen_width) - 1) * 10.0f;   // Assuming the depth of the bounding box is same as width.
+        }
     }
 
     glLineWidth(2.0f);
 
-    /*for (int i = 0; i < 3*nodes; i+=3)
+//    printf("%d", k);
+    for (int i = 0; i < k; i+=3)
     {
         printf("%f %f %f\n",tree_nodes[i], tree_nodes[i+1], tree_nodes[i+2]);
-    }*/
+    }
 
     // Setting color information
     GLfloat tree_color[SIZE] = {0};
-    for (int i = 0; i < 3*nodes; i+=3)
+    for (int i = 0; i < 3*k; i+=3)
     {
         tree_color[i] = 0.3;
         tree_color[i+1] = 0.6;
@@ -193,19 +207,20 @@ void OpenGLWidget::createTree()
     GLuint vertex_VBO;
     glGenBuffers(1, &vertex_VBO);
     glBindBuffer(GL_ARRAY_BUFFER, vertex_VBO);
-    glBufferData(GL_ARRAY_BUFFER, nodes*3*sizeof(GLfloat), tree_nodes, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 3*k*sizeof(GLfloat), tree_nodes, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vVertex_attrib);
     glVertexAttribPointer(vVertex_attrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
     GLuint color_VBO;
     glGenBuffers(1, &color_VBO);
     glBindBuffer(GL_ARRAY_BUFFER, color_VBO);
-    glBufferData(GL_ARRAY_BUFFER, nodes*3*sizeof(GLfloat), tree_color, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 3*k*sizeof(GLfloat), tree_color, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vColor_attrib);
     glVertexAttribPointer(vColor_attrib, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+
 }
 
 
@@ -227,7 +242,6 @@ glm::vec3 OpenGLWidget::getTrackBallVector(int x, int y)
 {
     glm::vec3 p = glm::vec3(2.0*x/screen_width - 1.0, 2.0*y/screen_height - 1.0, 0.0); //Normalize to [-1, +1]
     p.y = -p.y; //Invert Y since screen coordinate and OpenGL coordinates have different Y directions.
-    printf("%d %d", screen_width, screen_height);
     float mag2 = p.x*p.x + p.y*p.y;
     if(mag2 <= 1.0)
         p.z = sqrt(1.0 - mag2);

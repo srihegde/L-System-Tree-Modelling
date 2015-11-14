@@ -37,6 +37,7 @@ public:
         if (Viewer->objectName().isEmpty())
             Viewer->setObjectName(QStringLiteral("Viewer"));
         Viewer->resize(800, 600);
+        Viewer->setCursor(QCursor(Qt::OpenHandCursor));
         centralwidget = new QWidget(Viewer);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);

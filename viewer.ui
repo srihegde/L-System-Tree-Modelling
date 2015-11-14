@@ -10,6 +10,9 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>OpenHandCursor</cursorShape>
+  </property>
   <property name="windowTitle">
    <string>Viewer</string>
   </property>
