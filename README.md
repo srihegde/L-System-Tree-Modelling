@@ -1,4 +1,4 @@
-# L-System-Tree-Modelling# Sketch23D
+# L-System-Tree-Modelling
 A tool for converting 2D tree image with 3D tree model
 
 ## Pre-Requisites
