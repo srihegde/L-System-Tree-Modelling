@@ -11,7 +11,6 @@ using namespace std;
 using namespace cv;
 
 #define SIZE 500
-#define PI 3.14159
 
 class Modeller
 {
@@ -24,6 +23,7 @@ protected:
     Point2f rotate(float x, float y, float angle);
     void placeBranches(Branch br, float angle);
     void printFinalNodes();
+    float findNearestNode(Branch br, float x, float y);
 
 public:
     Modeller(Branch blist[100]);

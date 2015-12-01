@@ -666,6 +666,77 @@ moc_mainwindow.cpp: ../Qt/5.5/gcc_64/include/QtWidgets/QMainWindow \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtabwidget.h \
 		../Qt/5.5/gcc_64/include/QtGui/qicon.h \
 		viewer.h \
+		modeller.h \
+		/usr/local/include/opencv2/opencv.hpp \
+		/usr/local/include/opencv2/core.hpp \
+		/usr/local/include/opencv2/core/cvdef.h \
+		/usr/local/include/opencv2/hal/defs.h \
+		/usr/local/include/opencv2/core/version.hpp \
+		/usr/local/include/opencv2/core/base.hpp \
+		/usr/local/include/opencv2/core/cvstd.hpp \
+		/usr/local/include/opencv2/core/ptr.inl.hpp \
+		/usr/local/include/opencv2/hal.hpp \
+		/usr/local/include/opencv2/core/sse_utils.hpp \
+		/usr/local/include/opencv2/core/traits.hpp \
+		/usr/local/include/opencv2/core/matx.hpp \
+		/usr/local/include/opencv2/core/types.hpp \
+		/usr/local/include/opencv2/core/mat.hpp \
+		/usr/local/include/opencv2/core/bufferpool.hpp \
+		/usr/local/include/opencv2/core/mat.inl.hpp \
+		/usr/local/include/opencv2/core/persistence.hpp \
+		/usr/local/include/opencv2/core/operations.hpp \
+		/usr/local/include/opencv2/core/cvstd.inl.hpp \
+		/usr/local/include/opencv2/core/utility.hpp \
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/core/types_c.h \
+		/usr/local/include/opencv2/core/optim.hpp \
+		/usr/local/include/opencv2/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc_c.h \
+		/usr/local/include/opencv2/imgproc/types_c.h \
+		/usr/local/include/opencv2/photo.hpp \
+		/usr/local/include/opencv2/photo/photo_c.h \
+		/usr/local/include/opencv2/video.hpp \
+		/usr/local/include/opencv2/video/tracking.hpp \
+		/usr/local/include/opencv2/video/background_segm.hpp \
+		/usr/local/include/opencv2/video/tracking_c.h \
+		/usr/local/include/opencv2/features2d.hpp \
+		/usr/local/include/opencv2/flann/miniflann.hpp \
+		/usr/local/include/opencv2/flann/defines.h \
+		/usr/local/include/opencv2/flann/config.h \
+		/usr/local/include/opencv2/objdetect.hpp \
+		/usr/local/include/opencv2/objdetect/detection_based_tracker.hpp \
+		/usr/local/include/opencv2/objdetect/objdetect_c.h \
+		/usr/local/include/opencv2/calib3d.hpp \
+		/usr/local/include/opencv2/core/affine.hpp \
+		/usr/local/include/opencv2/calib3d/calib3d_c.h \
+		/usr/local/include/opencv2/imgcodecs.hpp \
+		/usr/local/include/opencv2/videoio.hpp \
+		/usr/local/include/opencv2/highgui.hpp \
+		/usr/local/include/opencv2/highgui/highgui_c.h \
+		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
+		/usr/local/include/opencv2/videoio/videoio_c.h \
+		/usr/local/include/opencv2/ml.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		branch.h \
+		openglwidget.h \
+		shader_utils.h \
+		gl_utils.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qgl.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengl.h \
+		../Qt/5.5/gcc_64/include/QtCore/qt_windows.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopenglext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpaintengine.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpainter.h \
+		../Qt/5.5/gcc_64/include/QtGui/qtextoption.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qglcolormap.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
+		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
+		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
 		mainwindow.h
 	/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/bin/moc $(DEFINES) -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/mkspecs/linux-g++ -I/home/srinidhi/IIITD/Sem5/CompGr/TreeModeler -I/usr/local/include -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtOpenGL -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtWidgets -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtGui -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtCore mainwindow.h -o moc_mainwindow.cpp
 
@@ -784,8 +855,7 @@ moc_glwidget.cpp: ../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
 		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
 		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
 		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
-		../Qt/5.5/gcc_64/include/QtCore/QEvent \
-		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
+		branch.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/imgproc.hpp \
 		/usr/local/include/opencv2/core.hpp \
@@ -819,6 +889,8 @@ moc_glwidget.cpp: ../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
 		/usr/local/include/opencv2/highgui/highgui_c.h \
 		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
 		/usr/local/include/opencv2/videoio/videoio_c.h \
+		../Qt/5.5/gcc_64/include/QtCore/QEvent \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
 		glwidget.h
 	/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/bin/moc $(DEFINES) -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/mkspecs/linux-g++ -I/home/srinidhi/IIITD/Sem5/CompGr/TreeModeler -I/usr/local/include -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtOpenGL -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtWidgets -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtGui -I/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/include/QtCore glwidget.h -o moc_glwidget.cpp
 
@@ -1052,8 +1124,7 @@ ui_mainwindow.h: mainwindow.ui \
 		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
 		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
 		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
-		../Qt/5.5/gcc_64/include/QtCore/QEvent \
-		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
+		branch.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/imgproc.hpp \
 		/usr/local/include/opencv2/core.hpp \
@@ -1086,7 +1157,9 @@ ui_mainwindow.h: mainwindow.ui \
 		/usr/local/include/opencv2/videoio.hpp \
 		/usr/local/include/opencv2/highgui/highgui_c.h \
 		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
-		/usr/local/include/opencv2/videoio/videoio_c.h
+		/usr/local/include/opencv2/videoio/videoio_c.h \
+		../Qt/5.5/gcc_64/include/QtCore/QEvent \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent
 	/home/srinidhi/IIITD/Sem5/CompGr/Qt/5.5/gcc_64/bin/uic mainwindow.ui -o ui_mainwindow.h
 
 ui_viewer.h: viewer.ui \
@@ -1328,6 +1401,77 @@ main.o: main.cpp mainwindow.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtabwidget.h \
 		../Qt/5.5/gcc_64/include/QtGui/qicon.h \
 		viewer.h \
+		modeller.h \
+		/usr/local/include/opencv2/opencv.hpp \
+		/usr/local/include/opencv2/core.hpp \
+		/usr/local/include/opencv2/core/cvdef.h \
+		/usr/local/include/opencv2/hal/defs.h \
+		/usr/local/include/opencv2/core/version.hpp \
+		/usr/local/include/opencv2/core/base.hpp \
+		/usr/local/include/opencv2/core/cvstd.hpp \
+		/usr/local/include/opencv2/core/ptr.inl.hpp \
+		/usr/local/include/opencv2/hal.hpp \
+		/usr/local/include/opencv2/core/sse_utils.hpp \
+		/usr/local/include/opencv2/core/traits.hpp \
+		/usr/local/include/opencv2/core/matx.hpp \
+		/usr/local/include/opencv2/core/types.hpp \
+		/usr/local/include/opencv2/core/mat.hpp \
+		/usr/local/include/opencv2/core/bufferpool.hpp \
+		/usr/local/include/opencv2/core/mat.inl.hpp \
+		/usr/local/include/opencv2/core/persistence.hpp \
+		/usr/local/include/opencv2/core/operations.hpp \
+		/usr/local/include/opencv2/core/cvstd.inl.hpp \
+		/usr/local/include/opencv2/core/utility.hpp \
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/core/types_c.h \
+		/usr/local/include/opencv2/core/optim.hpp \
+		/usr/local/include/opencv2/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc_c.h \
+		/usr/local/include/opencv2/imgproc/types_c.h \
+		/usr/local/include/opencv2/photo.hpp \
+		/usr/local/include/opencv2/photo/photo_c.h \
+		/usr/local/include/opencv2/video.hpp \
+		/usr/local/include/opencv2/video/tracking.hpp \
+		/usr/local/include/opencv2/video/background_segm.hpp \
+		/usr/local/include/opencv2/video/tracking_c.h \
+		/usr/local/include/opencv2/features2d.hpp \
+		/usr/local/include/opencv2/flann/miniflann.hpp \
+		/usr/local/include/opencv2/flann/defines.h \
+		/usr/local/include/opencv2/flann/config.h \
+		/usr/local/include/opencv2/objdetect.hpp \
+		/usr/local/include/opencv2/objdetect/detection_based_tracker.hpp \
+		/usr/local/include/opencv2/objdetect/objdetect_c.h \
+		/usr/local/include/opencv2/calib3d.hpp \
+		/usr/local/include/opencv2/core/affine.hpp \
+		/usr/local/include/opencv2/calib3d/calib3d_c.h \
+		/usr/local/include/opencv2/imgcodecs.hpp \
+		/usr/local/include/opencv2/videoio.hpp \
+		/usr/local/include/opencv2/highgui.hpp \
+		/usr/local/include/opencv2/highgui/highgui_c.h \
+		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
+		/usr/local/include/opencv2/videoio/videoio_c.h \
+		/usr/local/include/opencv2/ml.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		branch.h \
+		openglwidget.h \
+		shader_utils.h \
+		gl_utils.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qgl.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengl.h \
+		../Qt/5.5/gcc_64/include/QtCore/qt_windows.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopenglext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpaintengine.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpainter.h \
+		../Qt/5.5/gcc_64/include/QtGui/qtextoption.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qglcolormap.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
+		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
+		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
 		../Qt/5.5/gcc_64/include/QtWidgets/QApplication \
 		../Qt/5.5/gcc_64/include/QtWidgets/qapplication.h \
 		../Qt/5.5/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1444,6 +1588,77 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtabwidget.h \
 		../Qt/5.5/gcc_64/include/QtGui/qicon.h \
 		viewer.h \
+		modeller.h \
+		/usr/local/include/opencv2/opencv.hpp \
+		/usr/local/include/opencv2/core.hpp \
+		/usr/local/include/opencv2/core/cvdef.h \
+		/usr/local/include/opencv2/hal/defs.h \
+		/usr/local/include/opencv2/core/version.hpp \
+		/usr/local/include/opencv2/core/base.hpp \
+		/usr/local/include/opencv2/core/cvstd.hpp \
+		/usr/local/include/opencv2/core/ptr.inl.hpp \
+		/usr/local/include/opencv2/hal.hpp \
+		/usr/local/include/opencv2/core/sse_utils.hpp \
+		/usr/local/include/opencv2/core/traits.hpp \
+		/usr/local/include/opencv2/core/matx.hpp \
+		/usr/local/include/opencv2/core/types.hpp \
+		/usr/local/include/opencv2/core/mat.hpp \
+		/usr/local/include/opencv2/core/bufferpool.hpp \
+		/usr/local/include/opencv2/core/mat.inl.hpp \
+		/usr/local/include/opencv2/core/persistence.hpp \
+		/usr/local/include/opencv2/core/operations.hpp \
+		/usr/local/include/opencv2/core/cvstd.inl.hpp \
+		/usr/local/include/opencv2/core/utility.hpp \
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/core/types_c.h \
+		/usr/local/include/opencv2/core/optim.hpp \
+		/usr/local/include/opencv2/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc_c.h \
+		/usr/local/include/opencv2/imgproc/types_c.h \
+		/usr/local/include/opencv2/photo.hpp \
+		/usr/local/include/opencv2/photo/photo_c.h \
+		/usr/local/include/opencv2/video.hpp \
+		/usr/local/include/opencv2/video/tracking.hpp \
+		/usr/local/include/opencv2/video/background_segm.hpp \
+		/usr/local/include/opencv2/video/tracking_c.h \
+		/usr/local/include/opencv2/features2d.hpp \
+		/usr/local/include/opencv2/flann/miniflann.hpp \
+		/usr/local/include/opencv2/flann/defines.h \
+		/usr/local/include/opencv2/flann/config.h \
+		/usr/local/include/opencv2/objdetect.hpp \
+		/usr/local/include/opencv2/objdetect/detection_based_tracker.hpp \
+		/usr/local/include/opencv2/objdetect/objdetect_c.h \
+		/usr/local/include/opencv2/calib3d.hpp \
+		/usr/local/include/opencv2/core/affine.hpp \
+		/usr/local/include/opencv2/calib3d/calib3d_c.h \
+		/usr/local/include/opencv2/imgcodecs.hpp \
+		/usr/local/include/opencv2/videoio.hpp \
+		/usr/local/include/opencv2/highgui.hpp \
+		/usr/local/include/opencv2/highgui/highgui_c.h \
+		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
+		/usr/local/include/opencv2/videoio/videoio_c.h \
+		/usr/local/include/opencv2/ml.hpp \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		branch.h \
+		openglwidget.h \
+		shader_utils.h \
+		gl_utils.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qgl.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengl.h \
+		../Qt/5.5/gcc_64/include/QtCore/qt_windows.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qopenglext.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpaintengine.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpainter.h \
+		../Qt/5.5/gcc_64/include/QtGui/qtextoption.h \
+		../Qt/5.5/gcc_64/include/QtGui/qpen.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qglcolormap.h \
+		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
+		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
+		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
 		ui_mainwindow.h \
 		../Qt/5.5/gcc_64/include/QtCore/QVariant \
 		../Qt/5.5/gcc_64/include/QtWidgets/QAction \
@@ -1490,55 +1705,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtoolbar.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/QWidget \
 		glwidget.h \
-		../Qt/5.5/gcc_64/include/QtOpenGL/QGLWidget \
-		../Qt/5.5/gcc_64/include/QtOpenGL/qgl.h \
-		../Qt/5.5/gcc_64/include/QtGui/qopengl.h \
-		../Qt/5.5/gcc_64/include/QtCore/qt_windows.h \
-		../Qt/5.5/gcc_64/include/QtGui/qopengles2ext.h \
-		../Qt/5.5/gcc_64/include/QtGui/qopenglext.h \
-		../Qt/5.5/gcc_64/include/QtGui/qpaintengine.h \
-		../Qt/5.5/gcc_64/include/QtGui/qpainter.h \
-		../Qt/5.5/gcc_64/include/QtGui/qtextoption.h \
-		../Qt/5.5/gcc_64/include/QtGui/qpen.h \
-		../Qt/5.5/gcc_64/include/QtOpenGL/qglcolormap.h \
-		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
-		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
-		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
-		../Qt/5.5/gcc_64/include/QtCore/QEvent \
-		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
-		/usr/local/include/opencv2/imgproc/imgproc.hpp \
-		/usr/local/include/opencv2/imgproc.hpp \
-		/usr/local/include/opencv2/core.hpp \
-		/usr/local/include/opencv2/core/cvdef.h \
-		/usr/local/include/opencv2/hal/defs.h \
-		/usr/local/include/opencv2/core/version.hpp \
-		/usr/local/include/opencv2/core/base.hpp \
-		/usr/local/include/opencv2/core/cvstd.hpp \
-		/usr/local/include/opencv2/core/ptr.inl.hpp \
-		/usr/local/include/opencv2/hal.hpp \
-		/usr/local/include/opencv2/core/sse_utils.hpp \
-		/usr/local/include/opencv2/core/traits.hpp \
-		/usr/local/include/opencv2/core/matx.hpp \
-		/usr/local/include/opencv2/core/types.hpp \
-		/usr/local/include/opencv2/core/mat.hpp \
-		/usr/local/include/opencv2/core/bufferpool.hpp \
-		/usr/local/include/opencv2/core/mat.inl.hpp \
-		/usr/local/include/opencv2/core/persistence.hpp \
-		/usr/local/include/opencv2/core/operations.hpp \
-		/usr/local/include/opencv2/core/cvstd.inl.hpp \
-		/usr/local/include/opencv2/core/utility.hpp \
-		/usr/local/include/opencv2/core/core_c.h \
-		/usr/local/include/opencv2/core/types_c.h \
-		/usr/local/include/opencv2/core/optim.hpp \
-		/usr/local/include/opencv2/imgproc/imgproc_c.h \
-		/usr/local/include/opencv2/imgproc/types_c.h \
-		/usr/local/include/opencv2/highgui/highgui.hpp \
-		/usr/local/include/opencv2/highgui.hpp \
-		/usr/local/include/opencv2/imgcodecs.hpp \
-		/usr/local/include/opencv2/videoio.hpp \
-		/usr/local/include/opencv2/highgui/highgui_c.h \
-		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
-		/usr/local/include/opencv2/videoio/videoio_c.h
+		../Qt/5.5/gcc_64/include/QtCore/QEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 glwidget.o: glwidget.cpp glwidget.h \
@@ -1657,8 +1824,7 @@ glwidget.o: glwidget.cpp glwidget.h \
 		../Qt/5.5/gcc_64/include/QtOpenGL/qtopenglglobal.h \
 		../Qt/5.5/gcc_64/include/QtGui/QSurfaceFormat \
 		../Qt/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
-		../Qt/5.5/gcc_64/include/QtCore/QEvent \
-		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
+		branch.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/imgproc.hpp \
 		/usr/local/include/opencv2/core.hpp \
@@ -1692,6 +1858,8 @@ glwidget.o: glwidget.cpp glwidget.h \
 		/usr/local/include/opencv2/highgui/highgui_c.h \
 		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
 		/usr/local/include/opencv2/videoio/videoio_c.h \
+		../Qt/5.5/gcc_64/include/QtCore/QEvent \
+		../Qt/5.5/gcc_64/include/QtGui/QMouseEvent \
 		shader_utils.h \
 		../Qt/5.5/gcc_64/include/QtCore/QDebug \
 		../Qt/5.5/gcc_64/include/QtCore/QVector \
@@ -1701,7 +1869,27 @@ glwidget.o: glwidget.cpp glwidget.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtabwidget.h \
 		../Qt/5.5/gcc_64/include/QtGui/qicon.h \
 		viewer.h \
-		branch.h
+		modeller.h \
+		/usr/local/include/opencv2/opencv.hpp \
+		/usr/local/include/opencv2/photo.hpp \
+		/usr/local/include/opencv2/photo/photo_c.h \
+		/usr/local/include/opencv2/video.hpp \
+		/usr/local/include/opencv2/video/tracking.hpp \
+		/usr/local/include/opencv2/video/background_segm.hpp \
+		/usr/local/include/opencv2/video/tracking_c.h \
+		/usr/local/include/opencv2/features2d.hpp \
+		/usr/local/include/opencv2/flann/miniflann.hpp \
+		/usr/local/include/opencv2/flann/defines.h \
+		/usr/local/include/opencv2/flann/config.h \
+		/usr/local/include/opencv2/objdetect.hpp \
+		/usr/local/include/opencv2/objdetect/detection_based_tracker.hpp \
+		/usr/local/include/opencv2/objdetect/objdetect_c.h \
+		/usr/local/include/opencv2/calib3d.hpp \
+		/usr/local/include/opencv2/core/affine.hpp \
+		/usr/local/include/opencv2/calib3d/calib3d_c.h \
+		/usr/local/include/opencv2/ml.hpp \
+		openglwidget.h \
+		gl_utils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o glwidget.o glwidget.cpp
 
 shader_utils.o: shader_utils.cpp shader_utils.h
@@ -2085,9 +2273,9 @@ modeller.o: modeller.cpp modeller.h \
 		/usr/local/include/opencv2/imgcodecs/imgcodecs_c.h \
 		/usr/local/include/opencv2/videoio/videoio_c.h \
 		/usr/local/include/opencv2/ml.hpp \
-		branch.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
-		/usr/local/include/opencv2/highgui/highgui.hpp
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		branch.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o modeller.o modeller.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

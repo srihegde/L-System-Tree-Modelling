@@ -8,6 +8,8 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
+#include <string>
+
 using namespace cv;
 using namespace std;
 
@@ -26,6 +28,8 @@ int w_height=0;
 
 vector<Point> dvertices;
 vector<Point> DPvertices;
+
+string rule[100];
 
 //vector<Branch> drawnBranch;
 
@@ -420,14 +424,37 @@ void GLwidget::mousePressEvent(QMouseEvent *ev)
             }
         }
         qDebug()<<"-----------------Lsystem rules are-----------------------------------------";
-        for(int i =0;i < branchNumber; i++){
-            if(drawnBranch[i].consider == 1){
-                qDebug()<<"Branch id"<<drawnBranch[i].polyBranchId<<" goes to ->:";
-                for(int j =0; j<drawnBranch[i].nChildren;j++){
-                    qDebug()<<drawnBranch[i].childrenIds.at(j);
+
+                for(int i =0;i < branchNumber; i++){
+                    if(drawnBranch[i].consider == 1){
+
+                        //qDebug()<<"Branch id"<<char(drawnBranch[i].polyBranchId+65+5)<<" goes to ->:";
+                        rule[i] = rule[i]+char(drawnBranch[i].polyBranchId+65+5);
+
+//                        symbol_lsys++;
+                        rule[i] = rule[i] + "->";
+
+                        for(int j =0; j<drawnBranch[i].nChildren;j++){
+                            if(drawnBranch[i].childrenIds.at(j) == 999)
+                                drawnBranch[i].childrenIds[j] = 0;
+                           // qDebug()<<char(drawnBranch[i].childrenIds.at(j)+65+5);
+
+                            rule[i] = rule[i] + "[";
+                            rule[i] = rule[i] +char(drawnBranch[i].childrenIds.at(j)+65+5);
+                            rule[i] = rule[i] +"]";
+                        }
+                    }
                 }
-            }
-        }
+
+                QDebug debug = qDebug();
+                for(int i =0;i < branchNumber; i++){
+                    debug<<"R"<<i<<":";
+                    for(int j =0; j<rule[i].size();j++){
+                        if(drawnBranch[i].consider == 1)
+                            debug<<rule[i].at(j);
+                    }
+                    debug<<" , ";
+                }
 //-------------------------------------------------------------------------------------------------------
     }
 
