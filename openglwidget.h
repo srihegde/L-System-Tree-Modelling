@@ -36,6 +36,8 @@ public:
     OpenGLWidget(QWidget *parent) : QGLWidget(parent) {}
     ~OpenGLWidget();
     void setNodeInfo(std::vector<float> nodes);
+    void zoomIn();
+    void zoomOut();
 
 protected:
     void initializeGL();
@@ -65,6 +67,7 @@ private:
 
     GLuint cube_VAO; //Vertex array object for cube
     std::vector<float> nodeInfo;
+    float zoomVal;
 };
 
 #endif // OPENGLWIDGET_H

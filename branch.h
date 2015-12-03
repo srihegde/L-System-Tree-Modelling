@@ -1,6 +1,6 @@
 #ifndef BRANCH_H
 #define BRANCH_H
-#include<iostream>
+#include <iostream>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 

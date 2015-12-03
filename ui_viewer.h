@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -26,10 +27,13 @@ QT_BEGIN_NAMESPACE
 class Ui_Viewer
 {
 public:
+    QAction *actionZoom_In;
+    QAction *actionZoom_Out;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     OpenGLWidget *widget;
     QMenuBar *menubar;
+    QMenu *menuView;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Viewer)
@@ -38,6 +42,10 @@ public:
             Viewer->setObjectName(QStringLiteral("Viewer"));
         Viewer->resize(800, 600);
         Viewer->setCursor(QCursor(Qt::OpenHandCursor));
+        actionZoom_In = new QAction(Viewer);
+        actionZoom_In->setObjectName(QStringLiteral("actionZoom_In"));
+        actionZoom_Out = new QAction(Viewer);
+        actionZoom_Out->setObjectName(QStringLiteral("actionZoom_Out"));
         centralwidget = new QWidget(Viewer);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -51,10 +59,16 @@ public:
         menubar = new QMenuBar(Viewer);
         menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 25));
+        menuView = new QMenu(menubar);
+        menuView->setObjectName(QStringLiteral("menuView"));
         Viewer->setMenuBar(menubar);
         statusbar = new QStatusBar(Viewer);
         statusbar->setObjectName(QStringLiteral("statusbar"));
         Viewer->setStatusBar(statusbar);
+
+        menubar->addAction(menuView->menuAction());
+        menuView->addAction(actionZoom_In);
+        menuView->addAction(actionZoom_Out);
 
         retranslateUi(Viewer);
 
@@ -64,6 +78,11 @@ public:
     void retranslateUi(QMainWindow *Viewer)
     {
         Viewer->setWindowTitle(QApplication::translate("Viewer", "Viewer", 0));
+        actionZoom_In->setText(QApplication::translate("Viewer", "Zoom In", 0));
+        actionZoom_In->setShortcut(QApplication::translate("Viewer", "Ctrl+Up", 0));
+        actionZoom_Out->setText(QApplication::translate("Viewer", "Zoom Out", 0));
+        actionZoom_Out->setShortcut(QApplication::translate("Viewer", "Ctrl+Down", 0));
+        menuView->setTitle(QApplication::translate("Viewer", "View", 0));
     } // retranslateUi
 
 };

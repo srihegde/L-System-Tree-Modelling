@@ -28,6 +28,21 @@ void OpenGLWidget::setNodeInfo(std::vector<float> nodes)
     }
 }
 
+void OpenGLWidget::zoomIn()
+{
+    zoomVal -= 5.0f;
+    viewT = glm::lookAt(glm::vec3(0.0, 0.0, zoomVal), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+    glUniformMatrix4fv(vView_uniform, 1, GL_FALSE, glm::value_ptr(viewT));
+}
+
+void OpenGLWidget::zoomOut()
+{
+    zoomVal += 5.0f;
+    viewT = glm::lookAt(glm::vec3(0.0, 0.0, zoomVal), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+    glUniformMatrix4fv(vView_uniform, 1, GL_FALSE, glm::value_ptr(viewT));
+
+}
+
 
 
 void OpenGLWidget::initializeGL()
@@ -109,8 +124,9 @@ void OpenGLWidget::setupModelTransformation()
 
 void OpenGLWidget::setupViewTransformation()
 {
+    zoomVal = 40.0f;
     //Viewing transformations (World -> Camera coordinates
-    viewT = glm::lookAt(glm::vec3(0.0, 0.0, 40.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+    viewT = glm::lookAt(glm::vec3(0.0, 0.0, zoomVal), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
     //Camera at (0, 0, 20) looking down the negative Z-axis in a right handed coordinate system
 
     //Pass on the viewing matrix to the vertex shader
@@ -185,7 +201,7 @@ void OpenGLWidget::createTree()
         }
     }
 
-    glLineWidth(2.0f);
+    glLineWidth(4.0f);
 
     // For Debugging
 //    printf("%d", k);

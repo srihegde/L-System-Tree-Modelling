@@ -23,7 +23,7 @@ protected:
     Point2f rotate(float x, float y, float angle);
     void placeBranches(Branch br, float angle);
     void printFinalNodes();
-    float findNearestNode(Branch br, float x, float y);
+    float findNearestNode(Branch br, Branch child);
 
 public:
     Modeller(Branch blist[100]);

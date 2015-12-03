@@ -18,3 +18,13 @@ void Viewer::setPoints(std::vector<float> nodes)
     ui->widget->setNodeInfo(nodes);
 }
 
+
+void Viewer::on_actionZoom_In_triggered()
+{
+    ui->widget->zoomIn();
+}
+
+void Viewer::on_actionZoom_Out_triggered()
+{
+    ui->widget->zoomOut();
+}

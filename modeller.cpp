@@ -34,9 +34,9 @@ Modeller::Modeller(Branch blist[])
 
     int delta;
     for (int i = 0; i < numBranches; ++i) {
-        branchList[ branchList[0].childrenIds[i] ].zvalue.push_back(findNearestNode(branchList[branchList[0].childrenIds[i]], branchList[branchList[0].childrenIds[i]].polyBranch[0].x, branchList[branchList[0].childrenIds[i]].polyBranch[0].y));
+        branchList[ branchList[0].childrenIds[i] ].zvalue.push_back(findNearestNode(branchList[0], branchList[branchList[0].childrenIds[i]]));
         placeBranches(branchList[ branchList[0].childrenIds[i] ], angle);
-        delta = M_PI/(rand()%10 + 10);     // Random perturbations.
+        delta = M_PI/(rand()%10 + 15);     // Random perturbations.
         angle += (((2*M_PI) / numBranches) + delta);
 
     }
@@ -97,7 +97,7 @@ void Modeller::placeBranches(Branch br, float angle)
     {
         for (int i = 0; i < br.childrenIds.size(); ++i)
         {
-            branchList[ br.childrenIds[i] ].zvalue.push_back(findNearestNode(branchList[br.childrenIds[i]], branchList[br.childrenIds[i]].polyBranch[0].x, branchList[br.childrenIds[i]].polyBranch[0].y));
+            branchList[ br.childrenIds[i] ].zvalue.push_back(findNearestNode(br, branchList[br.childrenIds[i]]));
             placeBranches(branchList[ br.childrenIds[i] ], angle);
         }
     }
@@ -120,20 +120,20 @@ void Modeller::printFinalNodes()
     fclose(f);
 }
 
-float Modeller::findNearestNode(Branch br, float x, float y)
+float Modeller::findNearestNode(Branch br, Branch child)
 {
-    Branch par = branchList[br.parentId];
+    float x = child.polyBranch[0].x, y = child.polyBranch[0].y;
 
-    for (int i = 0; i < par.polyBranch.size(); ++i) {
-       if(fabs(par.polyBranch[i].x - x) < 40 && fabs(par.polyBranch[i].y - y) < 40)
+    for (int i = 0; i < br.polyBranch.size()-1; ++i) {
+       if(fabs(br.polyBranch[i].x - x) < 40 && fabs(br.polyBranch[i].y - y) < 40)
        {
 //           printf("Found !!!\n");
-           return par.zvalue[i];
+           return br.zvalue[i] + ((fabs(br.zvalue[i+1] - br.zvalue[i])) * fabs(y - br.polyBranch[i].y) / (fabs(br.polyBranch[i+1].y - br.polyBranch[i].y)));
        }
     }
 
-    printf("%d: %d\n", br.parentId, par.zvalue.size());
-    return par.zvalue[par.zvalue.size()/2];
+//    printf("%d: %d\n", child.parentId, br.zvalue.size());
+//    return br.zvalue[br.zvalue.size()/2];
 }
 
 
