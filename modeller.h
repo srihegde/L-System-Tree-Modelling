@@ -24,6 +24,7 @@ protected:
     void placeBranches(Branch br, float angle);
     void printFinalNodes();
     float findNearestNode(Branch br, Branch child);
+    int findNearestxy(Branch br, Branch child);
 
 public:
     Modeller(Branch blist[100]);

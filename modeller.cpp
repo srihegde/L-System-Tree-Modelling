@@ -36,8 +36,10 @@ Modeller::Modeller(Branch blist[])
     for (int i = 0; i < numBranches; ++i) {
         branchList[ branchList[0].childrenIds[i] ].zvalue.push_back(findNearestNode(branchList[0], branchList[branchList[0].childrenIds[i]]));
         placeBranches(branchList[ branchList[0].childrenIds[i] ], angle);
+        angle += (((2*M_PI) / numBranches)); //Normal distribution
+
         delta = M_PI/(rand()%10 + 15);     // Random perturbations.
-        angle += (((2*M_PI) / numBranches) + delta);
+//        angle += (((2*M_PI) / numBranches) + delta); //Random distribution
 
     }
 
@@ -95,9 +97,12 @@ void Modeller::placeBranches(Branch br, float angle)
 
     if(!br.childrenIds.empty())
     {
+        int index;
         for (int i = 0; i < br.childrenIds.size(); ++i)
         {
             branchList[ br.childrenIds[i] ].zvalue.push_back(findNearestNode(br, branchList[br.childrenIds[i]]));
+            index = findNearestxy(br,branchList[br.childrenIds[i]]);
+            branchList[ br.childrenIds[i] ].polyBranch[0] = br.polyBranch[index];
             placeBranches(branchList[ br.childrenIds[i] ], angle);
         }
     }
@@ -123,17 +128,37 @@ void Modeller::printFinalNodes()
 float Modeller::findNearestNode(Branch br, Branch child)
 {
     float x = child.polyBranch[0].x, y = child.polyBranch[0].y;
+    int index=0;
+    float min = 10000.0f, cur;
 
-    for (int i = 0; i < br.polyBranch.size()-1; ++i) {
-       if(fabs(br.polyBranch[i].x - x) < 40 && fabs(br.polyBranch[i].y - y) < 40)
+    for (int i = br.polyBranch.size()-1; i >= 0 ; --i) {
+        cur = pow(fabs(br.polyBranch[i].x - x),2) + pow(fabs(br.polyBranch[i].y - y),2);
+       if(cur<min)
        {
-//           printf("Found !!!\n");
-           return br.zvalue[i] + ((fabs(br.zvalue[i+1] - br.zvalue[i])) * fabs(y - br.polyBranch[i].y) / (fabs(br.polyBranch[i+1].y - br.polyBranch[i].y)));
+           min = cur;
+           index = i;
        }
     }
 
-//    printf("%d: %d\n", child.parentId, br.zvalue.size());
-//    return br.zvalue[br.zvalue.size()/2];
+    return br.zvalue[index];
+//    return br.zvalue[index] + ((fabs(br.zvalue[index+1] - br.zvalue[index])) * fabs(y - br.polyBranch[index].y) / (fabs(br.polyBranch[index+1].y - br.polyBranch[index].y)));
+}
+
+int Modeller::findNearestxy(Branch br, Branch child)
+{
+    float x = child.polyBranch[0].x, y = child.polyBranch[0].y;
+    int index=0;
+    float min = 1000.0f, cur;
+
+    for (int i = br.polyBranch.size()-1; i >= 0 ; --i) {
+       cur = pow(fabs(br.polyBranch[i].x - x),2) + pow(fabs(br.polyBranch[i].y - y),2);
+       if( cur < min)
+       {
+           min = cur;
+           index = i;
+       }
+    }
+    return index;
 }
 
 
