@@ -5,6 +5,7 @@
 #include "viewer.h"
 #include "modeller.h"
 #include "openglwidget.h"
+#include "lsysdecoder.h"
 
 namespace Ui {
 class MainWindow;

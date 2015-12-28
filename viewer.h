@@ -22,6 +22,10 @@ private slots:
 
     void on_actionZoom_Out_triggered();
 
+    void on_actionView_3D_triggered();
+
+    void on_actionShow_Skeleton_triggered();
+
 private:
     Ui::Viewer *ui;
 };

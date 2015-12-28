@@ -38,6 +38,8 @@
     </property>
     <addaction name="actionZoom_In"/>
     <addaction name="actionZoom_Out"/>
+    <addaction name="actionShow_Skeleton"/>
+    <addaction name="actionView_3D"/>
    </widget>
    <addaction name="menuView"/>
   </widget>
@@ -56,6 +58,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Down</string>
+   </property>
+  </action>
+  <action name="actionView_3D">
+   <property name="text">
+    <string>View 3D</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
+   </property>
+  </action>
+  <action name="actionShow_Skeleton">
+   <property name="text">
+    <string>Show Skeleton</string>
+   </property>
+   <property name="shortcut">
+    <string>Space</string>
    </property>
   </action>
  </widget>

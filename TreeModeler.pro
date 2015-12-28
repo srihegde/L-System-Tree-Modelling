@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     viewer.cpp \
     openglwidget.cpp \
     gl_utils.cpp \
-    modeller.cpp
+    modeller.cpp \
+    lsysdecoder.cpp
 
 HEADERS  += mainwindow.h\
     glwidget.h \
@@ -29,7 +30,8 @@ HEADERS  += mainwindow.h\
     viewer.h \
     openglwidget.h \
     gl_utils.h \
-    modeller.h
+    modeller.h \
+    lsysdecoder.h
 
 FORMS    += mainwindow.ui \
     viewer.ui

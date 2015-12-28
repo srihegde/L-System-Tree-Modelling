@@ -127,6 +127,9 @@
    <property name="text">
     <string>Draw</string>
    </property>
+   <property name="shortcut">
+    <string>Space</string>
+   </property>
   </action>
   <action name="actionGenerate_L_System">
    <property name="text">
@@ -136,6 +139,9 @@
   <action name="actionView_3D_Model">
    <property name="text">
     <string>View 3D Model</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="actionClear">

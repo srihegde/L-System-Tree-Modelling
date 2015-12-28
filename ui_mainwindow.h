@@ -148,8 +148,10 @@ public:
         actionBlue->setText(QApplication::translate("MainWindow", "Blue", 0));
         actionYellow->setText(QApplication::translate("MainWindow", "Yellow", 0));
         actionDraw->setText(QApplication::translate("MainWindow", "Draw", 0));
+        actionDraw->setShortcut(QApplication::translate("MainWindow", "Space", 0));
         actionGenerate_L_System->setText(QApplication::translate("MainWindow", "Generate L System", 0));
         actionView_3D_Model->setText(QApplication::translate("MainWindow", "View 3D Model", 0));
+        actionView_3D_Model->setShortcut(QApplication::translate("MainWindow", "Ctrl+V", 0));
         actionClear->setText(QApplication::translate("MainWindow", "Clear", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuShapes->setTitle(QApplication::translate("MainWindow", "Edit", 0));

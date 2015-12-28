@@ -11,7 +11,9 @@ class Branch
 {
 public:
     vector<Point> polyBranch;
+    vector<float> radius;
     vector<float> zvalue;
+//    vector<float> brLen;
     vector<int> childrenIds; //id's of child branches of this poly branch
     int polyBranchId;
     int polyBranchSize;//number of line segments that make upthis branch

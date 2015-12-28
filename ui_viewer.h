@@ -29,6 +29,8 @@ class Ui_Viewer
 public:
     QAction *actionZoom_In;
     QAction *actionZoom_Out;
+    QAction *actionView_3D;
+    QAction *actionShow_Skeleton;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     OpenGLWidget *widget;
@@ -46,6 +48,10 @@ public:
         actionZoom_In->setObjectName(QStringLiteral("actionZoom_In"));
         actionZoom_Out = new QAction(Viewer);
         actionZoom_Out->setObjectName(QStringLiteral("actionZoom_Out"));
+        actionView_3D = new QAction(Viewer);
+        actionView_3D->setObjectName(QStringLiteral("actionView_3D"));
+        actionShow_Skeleton = new QAction(Viewer);
+        actionShow_Skeleton->setObjectName(QStringLiteral("actionShow_Skeleton"));
         centralwidget = new QWidget(Viewer);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -69,6 +75,8 @@ public:
         menubar->addAction(menuView->menuAction());
         menuView->addAction(actionZoom_In);
         menuView->addAction(actionZoom_Out);
+        menuView->addAction(actionShow_Skeleton);
+        menuView->addAction(actionView_3D);
 
         retranslateUi(Viewer);
 
@@ -82,6 +90,10 @@ public:
         actionZoom_In->setShortcut(QApplication::translate("Viewer", "Ctrl+Up", 0));
         actionZoom_Out->setText(QApplication::translate("Viewer", "Zoom Out", 0));
         actionZoom_Out->setShortcut(QApplication::translate("Viewer", "Ctrl+Down", 0));
+        actionView_3D->setText(QApplication::translate("Viewer", "View 3D", 0));
+        actionView_3D->setShortcut(QApplication::translate("Viewer", "Shift+S", 0));
+        actionShow_Skeleton->setText(QApplication::translate("Viewer", "Show Skeleton", 0));
+        actionShow_Skeleton->setShortcut(QApplication::translate("Viewer", "Space", 0));
         menuView->setTitle(QApplication::translate("Viewer", "View", 0));
     } // retranslateUi
 

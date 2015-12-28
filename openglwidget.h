@@ -30,6 +30,8 @@
 #include <QMouseEvent>
 #include <vector>
 
+#define SIZE 1000000
+
 class OpenGLWidget : public QGLWidget
 {
 public:
@@ -39,6 +41,8 @@ public:
     void zoomIn();
     void zoomOut();
 
+    int stat;
+
 protected:
     void initializeGL();
     void resizeGL(int w, int h);
@@ -47,9 +51,11 @@ protected:
     void setupModelTransformation();
     void setupViewTransformation();
     void setupProjectionTransformation();
-    void createSphereObject();
-    void createCubeObject();
+
     void createTree();
+    void create3DTree();
+    void drawGenCylinder(glm::vec3 c1, glm::vec3 c2, float r1, float r2);
+    void drawSphere(glm::vec3 c, float r);
     void setupLighting();
 
     void mouseMoveEvent(QMouseEvent *mev);
@@ -61,13 +67,14 @@ protected:
 
 private:
     GLuint program;
-    GLint vVertex_attrib, vColor_attrib;
-    GLint vModel_uniform, vView_uniform, vProjection_uniform;
+    GLint vVertex_attrib, vColor_attrib, vNormal_attrib;
+    GLint vModel_uniform, vView_uniform, vProjection_uniform, vLightPosition_uniform, vLightPosition1_uniform;
     int screen_width, screen_height;
 
     GLuint cube_VAO; //Vertex array object for cube
     std::vector<float> nodeInfo;
     float zoomVal;
+    GLfloat tree_nodes[SIZE], normal_nodes[SIZE];
 };
 
 #endif // OPENGLWIDGET_H

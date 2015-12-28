@@ -56,7 +56,8 @@ SOURCES       = main.cpp \
 		viewer.cpp \
 		openglwidget.cpp \
 		gl_utils.cpp \
-		modeller.cpp moc_mainwindow.cpp \
+		modeller.cpp \
+		lsysdecoder.cpp moc_mainwindow.cpp \
 		moc_glwidget.cpp \
 		moc_viewer.cpp
 OBJECTS       = main.o \
@@ -68,6 +69,7 @@ OBJECTS       = main.o \
 		openglwidget.o \
 		gl_utils.o \
 		modeller.o \
+		lsysdecoder.o \
 		moc_mainwindow.o \
 		moc_glwidget.o \
 		moc_viewer.o
@@ -208,7 +210,8 @@ DIST          = ../Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		viewer.h \
 		openglwidget.h \
 		gl_utils.h \
-		modeller.h main.cpp \
+		modeller.h \
+		lsysdecoder.h main.cpp \
 		mainwindow.cpp \
 		glwidget.cpp \
 		shader_utils.cpp \
@@ -216,7 +219,8 @@ DIST          = ../Qt/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		viewer.cpp \
 		openglwidget.cpp \
 		gl_utils.cpp \
-		modeller.cpp
+		modeller.cpp \
+		lsysdecoder.cpp
 QMAKE_TARGET  = TreeModeler
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = TreeModeler
@@ -532,8 +536,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h glwidget.h shader_utils.h branch.h viewer.h openglwidget.h gl_utils.h modeller.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp glwidget.cpp shader_utils.cpp branch.cpp viewer.cpp openglwidget.cpp gl_utils.cpp modeller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h glwidget.h shader_utils.h branch.h viewer.h openglwidget.h gl_utils.h modeller.h lsysdecoder.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp glwidget.cpp shader_utils.cpp branch.cpp viewer.cpp openglwidget.cpp gl_utils.cpp modeller.cpp lsysdecoder.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui viewer.ui $(DISTDIR)/
 
 
@@ -719,6 +723,7 @@ moc_mainwindow.cpp: ../Qt/5.5/gcc_64/include/QtWidgets/QMainWindow \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/highgui/highgui.hpp \
 		branch.h \
+		lsysdecoder.h \
 		openglwidget.h \
 		shader_utils.h \
 		gl_utils.h \
@@ -1454,6 +1459,7 @@ main.o: main.cpp mainwindow.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/highgui/highgui.hpp \
 		branch.h \
+		lsysdecoder.h \
 		openglwidget.h \
 		shader_utils.h \
 		gl_utils.h \
@@ -1641,6 +1647,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/highgui/highgui.hpp \
 		branch.h \
+		lsysdecoder.h \
 		openglwidget.h \
 		shader_utils.h \
 		gl_utils.h \
@@ -1888,6 +1895,7 @@ glwidget.o: glwidget.cpp glwidget.h \
 		/usr/local/include/opencv2/core/affine.hpp \
 		/usr/local/include/opencv2/calib3d/calib3d_c.h \
 		/usr/local/include/opencv2/ml.hpp \
+		lsysdecoder.h \
 		openglwidget.h \
 		gl_utils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o glwidget.o glwidget.cpp
@@ -2073,9 +2081,10 @@ viewer.o: viewer.cpp viewer.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qstyle.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qtabbar.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/qrubberband.h \
+		../Qt/5.5/gcc_64/include/QtWidgets/QMenu \
+		../Qt/5.5/gcc_64/include/QtWidgets/qmenu.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/QMenuBar \
 		../Qt/5.5/gcc_64/include/QtWidgets/qmenubar.h \
-		../Qt/5.5/gcc_64/include/QtWidgets/qmenu.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/QStatusBar \
 		../Qt/5.5/gcc_64/include/QtWidgets/qstatusbar.h \
 		../Qt/5.5/gcc_64/include/QtWidgets/QWidget \
@@ -2275,8 +2284,12 @@ modeller.o: modeller.cpp modeller.h \
 		/usr/local/include/opencv2/ml.hpp \
 		/usr/local/include/opencv2/imgproc/imgproc.hpp \
 		/usr/local/include/opencv2/highgui/highgui.hpp \
-		branch.h
+		branch.h \
+		lsysdecoder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o modeller.o modeller.cpp
+
+lsysdecoder.o: lsysdecoder.cpp lsysdecoder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lsysdecoder.o lsysdecoder.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
