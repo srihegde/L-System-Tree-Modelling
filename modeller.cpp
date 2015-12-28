@@ -74,8 +74,8 @@ Modeller::Modeller(Branch blist[], string rules)
         for (int i = 0; i < tarr.size(); ++i)
         {
             finalNodes.push_back(tarr[i]);
-    //        girth.push_back(0.2f);
-            girth.push_back(blist[0].radius[blist[0].radius.size()-1]-0.4);
+            girth.push_back(0.03f);
+//            girth.push_back(blist[0].radius[blist[0].radius.size()-1]-0.4);
         }
     }
 
@@ -195,8 +195,8 @@ void Modeller::placeBranches(Branch br, float angle,  Point2f axis)
         for (int i = 0; i < tarr.size(); ++i)
         {
             finalNodes.push_back(tarr[i]);
-    //        girth.push_back(0.2f);
-            girth.push_back(br.radius[br.radius.size()-1]-0.1);
+            girth.push_back(0.03f);
+//            girth.push_back(br.radius[br.radius.size()-1]-0.1);
         }
     }
 
