@@ -5,8 +5,7 @@
  * Radius Adjustment: Preventing overshooting of branches
  * Surface conversion
  * Enabling shading     // Done (Simple Lambertian shading)
- * Tapering as a function of length: This has problem of arc length dist. estimation (inefficient)
-   as compared to tapering every visible branch
+ * Tapering as a function of length     // Done
  * Inserting Randomness in L-System productions     // Done
  * Realistic L-system grown branches - girth and orientation    // Orientation done
  * Computationally heavy (frequent crashes) when enabled L-system growth
@@ -18,6 +17,7 @@
 #include <cmath>
 
 float len;
+int flag = 0;       // Set flag = 1 for viewing intricate branches.
 
 Modeller::Modeller(Branch blist[], string rules)
 {
@@ -60,20 +60,24 @@ Modeller::Modeller(Branch blist[], string rules)
     brLen.push_back(len);
     finalNodes.push_back(arr);
 
-//    int depth = random()%4 + 3;
-//    Point3f start(arr[arr.size()-3], arr[arr.size()-2], arr[arr.size()-1]);
-//    Point3f tmpo(blist[0].polyBranch[blist[0].polyBranch.size()-1] - blist[0].polyBranch[blist[0].polyBranch.size()-2]);
-//    glm::vec3 dir(tmpo.x, tmpo.y, tmpo.z);
-//    vector< vector<float> > tarr;
+    // Drawing intricate branches for main trunk
+    if(flag)
+    {
+        int depth = random()%4 + 3;
+        Point3f start(arr[arr.size()-3], arr[arr.size()-2], arr[arr.size()-1]);
+        Point3f tmpo(blist[0].polyBranch[blist[0].polyBranch.size()-1] - blist[0].polyBranch[blist[0].polyBranch.size()-2]);
+        glm::vec3 dir(tmpo.x, tmpo.y, tmpo.z);
+        vector< vector<float> > tarr;
 
-//    tarr = lsys->grow(start, depth, dir);
+        tarr = lsys->grow(start, depth, dir);
 
-//    for (int i = 0; i < tarr.size(); ++i)
-//    {
-//        finalNodes.push_back(tarr[i]);
-////        girth.push_back(0.2f);
-//        girth.push_back(blist[0].radius[blist[0].radius.size()-1]-0.4);
-//    }
+        for (int i = 0; i < tarr.size(); ++i)
+        {
+            finalNodes.push_back(tarr[i]);
+    //        girth.push_back(0.2f);
+            girth.push_back(blist[0].radius[blist[0].radius.size()-1]-0.4);
+        }
+    }
 
     int mini= 10000.0f, maxi = -10000.0f;
     for (int i = 0; i < blist[0].polyBranch.size(); ++i) {
@@ -178,21 +182,23 @@ void Modeller::placeBranches(Branch br, float angle,  Point2f axis)
 
 
     // Drawing intricate branches
-//    int depth = random()%4 + 3;
-//    Point3f start(arr[arr.size()-3], arr[arr.size()-2], arr[arr.size()-1]);
-//    Point3f tmpo(br.polyBranch[br.polyBranch.size()-1] - br.polyBranch[br.polyBranch.size()-2]);
-//    glm::vec3 dir(tmpo.x, tmpo.y, tmpo.z);
-//    vector< vector<float> > tarr;
+    if(flag)
+    {
+        int depth = random()%4 + 3;
+        Point3f start(arr[arr.size()-3], arr[arr.size()-2], arr[arr.size()-1]);
+        Point3f tmpo(br.polyBranch[br.polyBranch.size()-1] - br.polyBranch[br.polyBranch.size()-2]);
+        glm::vec3 dir(tmpo.x, tmpo.y, tmpo.z);
+        vector< vector<float> > tarr;
 
-//    tarr = lsys->grow(start, depth, dir);
+        tarr = lsys->grow(start, depth, dir);
 
-//    for (int i = 0; i < tarr.size(); ++i)
-//    {
-//        finalNodes.push_back(tarr[i]);
-////        girth.push_back(0.2f);
-//        girth.push_back(br.radius[br.radius.size()-1]-0.1);
-//    }
-
+        for (int i = 0; i < tarr.size(); ++i)
+        {
+            finalNodes.push_back(tarr[i]);
+    //        girth.push_back(0.2f);
+            girth.push_back(br.radius[br.radius.size()-1]-0.1);
+        }
+    }
 
     if(!br.childrenIds.empty())
     {
