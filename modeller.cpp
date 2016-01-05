@@ -17,7 +17,7 @@
 #include <cmath>
 
 float len;
-int flag = 0;       // Set flag = 1 for viewing intricate branches.
+int flag = 1;       // Set flag = 1 for viewing intricate branches.
 
 Modeller::Modeller(Branch blist[], string rules)
 {
@@ -207,11 +207,11 @@ void Modeller::placeBranches(Branch br, float angle,  Point2f axis)
         {
             branchList[ br.childrenIds[i] ].zvalue.push_back(findNearestNode(br, branchList[br.childrenIds[i]]));
             index = findNearestxy(br,branchList[br.childrenIds[i]]);
-            index+=2;
+            index+=4;
             if(index > br.radius.size()) index = br.radius.size()-1;
 //            branchList[ br.childrenIds[i] ].polyBranch[0] = br.polyBranch[index];
             branchList[ br.childrenIds[i] ].radius.push_back(br.radius[index] - 0.01);
-            girth.push_back(br.radius[index] - 0.01);
+            girth.push_back(br.radius[index] - 0.1);
             placeBranches(branchList[ br.childrenIds[i] ], angle, axis);
         }
     }

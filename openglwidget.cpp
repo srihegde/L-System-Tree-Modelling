@@ -107,9 +107,9 @@ void OpenGLWidget::paintGL()
     onIdle();
     update();
     if(stat == 3)
-//        glDrawArrays(GL_TRIANGLE_STRIP, 0, k/3);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, k/3);
 //        glDrawArrays(GL_QUAD_STRIP, 0, k/3);
-        glDrawArrays(GL_TRIANGLES, 0, k/3);
+//        glDrawArrays(GL_TRIANGLES, 0, k/3);
 //        glDrawArrays(GL_LINES, 0, k/3);
 
     else if(stat == 1)
@@ -310,9 +310,15 @@ void OpenGLWidget::create3DTree()
 
             glm::vec3 c2(x1,y1,z1);
 
+
 //            printf("len: %f  l: %f\n", len, l);
-            drawGenCylinder(c1, c2, rad, (rad - (len/l)*rad /*+ 0.03*/));
-            rad -= ((len/l)*rad) /*+ 0.03*/;
+            if(rad > 0.03)
+            {
+                drawGenCylinder(c1, c2, rad, (rad - (len/(l))*rad /*+ 0.03*/));
+                rad -= ((len/(l))*rad) /*+ 0.03*/;
+            }
+            else
+                drawGenCylinder(c1, c2, rad, rad);
         }
 //        k+=3;
     }
